@@ -83,7 +83,7 @@ echo -e "[-/-] Partitions created"
 # Setup LUKS
 echo -e "\nSetting up LUKS:"
 echo -e "[1/2] Creating encrypted disk"
-echo $password | cryptsetup luksFormat /dev/disk/by-partlabel/ROOT -
+echo $password | cryptsetup luksFormat /dev/disk/by-partlabel/ROOT -d -
 echo -e "[2/2] Opening disk"
 echo $password | cryptsetup luksOpen /dev/disk/by-partlabel/ROOT cryptroot
 
