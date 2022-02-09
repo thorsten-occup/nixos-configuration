@@ -1,18 +1,32 @@
 # NixOS
 
+> **WARNING:** This is the documentation of my personal setup and is therefore
+aimed to work on **my** machines (which it now and then does). Please be aware,
+that this might not work on your machine!
+
 ## Documentation
 
-Detailed instructions: [official NixOS documentation](https://nixos.org/manual/nixos/stable/index.html)
+Detailed installation instructions:
+[official NixOS documentation](https://nixos.org/manual/nixos/stable)
 
+Supporting resources:
+- [NixOS Wiki](https://nixos.wiki/)
+- [Awesomwe Nix](https://nix-community.github.io/awesome-nix/)
+- [Nix Pills](https://nixos.org/guides/nix-pills/)
 - [NixOS Package Search](https://search.nixos.org/packages)
 - [NixOS Options Search](https://search.nixos.org/options)
-- [NixOS Handbook](https://nixos.org/manual/nixos/stable)
+- [NixOS & LUKS guide](https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134#file-nixos-md)
+- [nixos-generators - one config, multiple formats](https://github.com/nix-community/nixos-generators)
+- [nix.dev](https://nix.dev)
+- [NixOS Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
+- [nixos-up](https://github.com/samuela/nixos-up)
 
 ## Pre-install
 
-### Installation media
+### Create installation media
 
-Download minimal ISO [here](https://channels.nixos.org/nixos-21.11/latest-nixos-minimal-x86_64-linux.iso) and write to thumb drive (recommendation: [Ventoy](https://github.com/ventoy/Ventoy)).
+Download minimal ISO [here](https://channels.nixos.org/nixos-21.11/latest-nixos-minimal-x86_64-linux.iso)
+and write to thumb drive (recommendation: [Ventoy](https://github.com/ventoy/Ventoy)).
 
 ### Set up wifi (w/o Network Manager)
 
@@ -47,39 +61,15 @@ OK
 
 ## Installation
 
-... t.b.a. script ...
+The installation is guided by the script `install.sh` to various extends.
 
-## Post-install
+> Detailed instructions to follow ... one day ... hopefully not too far away.
 
-### eCryptfs
+## ToDo
 
-see [documentation](https://www.ecryptfs.org/)
+### List of services I need to try
 
-```bash
-ecryptfs-setup-private
-```
-
-## Ressources
-
-> NixOS & LUKS [guide](https://gist.github.com/martijnvermaat/76f2e24d0239470dd71050358b4d5134#file-nixos-md)
-
-
-> Ressources I use frequently ...
-
-- [NixOS Package Search](https://search.nixos.org/packages)
-- [NixOS Options Search](https://search.nixos.org/options)
-- [NixOS Handbook](https://nixos.org/manual/nixos/stable)
-- [NixOS Wiki](https://nixos.wiki/)
-- [Awesomwe Nix](https://nix-community.github.io/awesome-nix/)
-- [Nix Pills](https://nixos.org/guides/nix-pills/)
-- [nixos-generators - one config, multiple formats](https://github.com/nix-community/nixos-generators)
-- [nix.dev](https://nix.dev)
-- [NixOS Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
-- [nixos-up](https://github.com/samuela/nixos-up)
-
-## Try these services another time
-
-- service.confluence
+- services.confluence
 - services.dockerRegistry
 - services.elasticsearch
 - services.github-runner
