@@ -4,6 +4,9 @@
 aimed to work on **my** machines (which it now and then does). Please be aware,
 that this might not work on your machine!
 
+> **NOTE:** I might switch to unstable - at least for private use:
+[nixos-unstable-small](https://channels.nixos.org/?prefix=nixos-unstable-small/)
+
 ## Documentation
 
 Detailed installation instructions:
@@ -62,6 +65,11 @@ OK
 ## Installation
 
 The installation is guided by the script `install.sh` to various extends.
+
+Download install script:
+```bash
+$ curl -L https://tinyurl.com/mynixos/install.sh --output install.sh
+```
 
 > Detailed instructions to follow ... one day ... hopefully not too far away.
 
