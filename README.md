@@ -66,9 +66,11 @@ OK
 
 The installation is guided by the script `install.sh` to various extends.
 
-Download install script:
 ```bash
+# download install script
 $ curl -L https://tinyurl.com/mynixos/install.sh --output install.sh
+# make it executable
+$ chmod u+x install.sh
 ```
 
 > Detailed instructions to follow ... one day ... hopefully not too far away.
