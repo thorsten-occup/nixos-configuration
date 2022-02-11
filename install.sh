@@ -114,3 +114,4 @@ nixos-generate-config --root /mnt
 
 # todo
 # - download and configure nix files
+# curl -L https://tinyurl.com/mynixostest/install.sh --output install.sh
