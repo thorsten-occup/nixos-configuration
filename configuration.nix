@@ -6,6 +6,7 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./host.nix
       ./accounts.nix
     ];
 
@@ -18,12 +19,6 @@
   };
 
   networking = {
-    hostName = "taucetif";
-    useDHCP = false;
-    interfaces = {
-      enp2s0.useDHCP = true;
-      wlp3s0.useDHCP = true;
-    };
     firewall = {
       enable = false;
       # allowedTCPPorts = [ ... ];
@@ -90,8 +85,6 @@
     clock24 = true;
     newSession = true;
   };
-
-  programs.wireshark.enable = true;
 
   programs.zsh = {
     enable = true;
