@@ -2,6 +2,21 @@
 
 set -e
 
+# Configuration
+localpath="."
+remotepath="https://tinyurl.com/mynixostest/modules"
+files=(
+  "configuration.nix"
+  "accounts.nix"
+)
+
+for file in "${files[@]}"
+do
+  echo "FILE: $file"
+done
+
+exit 0
+
 function confirm2continue {
     echo -e "Are you sure you wish to continue?"
     read -p "Please type \"YES\" -> "
@@ -16,6 +31,12 @@ function getSwapSize {
     # "bc" not available in minimal image :-( (temporary workaround above)
     # echo $(echo "scale=0;$memory + sqrt($memory)" | bc)
     echo $memory
+}
+
+function getProductName {
+    # productname=$(lshw -class system -sanitize | grep "product: " | cut -f 2 -d ':')
+    # productid=$(cksum <<< $productname | cut -f 1 -d ' ')
+    # echo $productid
 }
 
 # Some warnings!
