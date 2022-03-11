@@ -14,7 +14,7 @@
     cue   # data constraint language
     azure-cli
     buildah
-    helm
+    kubernetes-helm
     kubectl
   ];
 
