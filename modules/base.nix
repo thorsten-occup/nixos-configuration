@@ -1,15 +1,10 @@
-{ ... }: {
+{ pkgs, ... }: {
 
   #############################################################################
   # Basic system configuration
-  #----------------------------------------------------------------------------
-  #
   #############################################################################
 
-# { config, pkgs, ... }: {
 
-
-  #############################################################################
   # Locals
   #############################################################################
 
@@ -28,7 +23,6 @@
   powerManagement.powertop.enable = true;
   security.sudo.enable = true;
 
-  #############################################################################
   # Program configuration
   #############################################################################
 
@@ -41,8 +35,6 @@
   };
 
   programs.htop.enable = true;
-
-  programs.light.enable = true;
 
   programs.neovim = {
     enable = true;
@@ -61,8 +53,6 @@
     withPython3 = true;
   };
 
-  programs.pantheon-tweaks.enable = true;
-
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -74,24 +64,15 @@
     ohMyZsh = {
       enable = true;
       plugins = [ "git" "python" "helm" "kubectl"];
-      theme = "agnoster";
+      theme = "robbyrussell";
     };
   };
 
-  #############################################################################
   # Packages and environment
   #############################################################################
 
-  nixpkgs.config.allowUnfree = true;
-
   environment.systemPackages = with pkgs; [
-    # development #############################################################
-    git   # distributed vcs
-    stack # the haskel tool stack
-    dhall # a configuration language
-    cue   # data constraint language
-
-    # console tools ##########################################################
+    git           # distributed vcs
     gh            # GitHub CLI
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
@@ -100,50 +81,16 @@
     xh            # friendly and fast tool for sending HTTP requests
     bitwarden-cli # secure and free password manager
     tree
-
-    # gui ####################################################################
-    alacritty 
-    bitwarden # secure and free password manager
-    firefox
-    foliate
-    pcloud
-    foliate   # eBook viewer
-    helvum    # GTK patchbay for pipewire
-    
-    # system #################################################################
-    ecryptfs
-    ecryptfs-helper
-
-    # cloud ##################################################################
-    azure-cli
-    buildah
-    helm
-    kubectl
   ];
 
   #############################################################################
   # Services
   #############################################################################
 
-  #services.clamav = {
-  #  daemon.enable = true;
-  #  updater = {
-  #    enable = true;
-  #    frequency = 1;
-  #    interval = "hourly";
-  #  };
-  #};
-
   services.earlyoom = {
     enable = true;
     enableNotifications = true;
   };
-
-  services.fwupd.enable = true;
-
-  #services.k3s.enable = true;
-
-  services.openssh.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -153,15 +100,10 @@
     pulse.enable = true;
   };
 
+  services.fwupd.enable = true;
+  services.openssh.enable = true;
   services.printing.enable = true;
 
-  services.xserver = {
-    enable = true;
-    desktopManager.pantheon.enable = true;
-    layout = "us,us";
-    xkbVariant = "altgr-intl,";
-    libinput.enable = true;
-  };
 
   #############################################################################
   # Virtualisation
@@ -172,7 +114,7 @@
     dockerCompat = true;
   };
 
-  #virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = true;
 
   #############################################################################
   # Misc
@@ -180,10 +122,4 @@
 
   hardware.pulseaudio.enable = false;
   sound.enable = true;
-
-  # systemd.services.k3s.enable = false;
-
-  security.pam.enableEcryptfs = true;
-
-  system.stateVersion = "21.11"; # Did you read the comment?
 }
