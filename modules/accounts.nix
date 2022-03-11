@@ -13,9 +13,9 @@
   users.users.earthling = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "Main user";
+    description = "Earthling";
     createHome = true;
-    home = "/home";
+    home = "/home/earthling";
     uid = 1000;
     extraGroups = [ "wheel" ];
   };
@@ -23,9 +23,9 @@
   users.users.powerless = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    description = "User with limited abilities";
+    description = "Capt. Powerless";
     createHome = true;
-    home = "/home";
+    home = "/home/powerless";
     uid = 1010;
   };
 }
