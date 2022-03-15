@@ -1,15 +1,15 @@
-# NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ./extra/gui.nix
+      ./extra/dev.nix
     ];
 
   boot = {
-    kernelModules = [ "ecryptfs" ];
+    kernelPackages = pkgs.linuxPackages_latest;
     loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
@@ -17,8 +17,7 @@
   };
 
   networking = {
-    hostName = "luytenb";
-    useDHCP = false;
+    hostName = "taucetif";
     interfaces = {
       enp2s0.useDHCP = true;
       wlp3s0.useDHCP = true;
@@ -30,8 +29,35 @@
     };
   };
 
+
+  # Accounts (don't forget to set a password with 'passwd')
   #############################################################################
-  # Internationalisation
+
+  environment.variables = {
+    DEFAULT_USER = "earthling";
+  };
+
+  users.users.earthling = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    description = "Earthling";
+    createHome = true;
+    home = "/home/earthling";
+    uid = 1000;
+    extraGroups = [ "wheel" ];
+  };
+
+  users.users.powerless = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+    description = "Capt. Powerless";
+    createHome = true;
+    home = "/home/powerless";
+    uid = 1010;
+  };
+
+
+  # Locals
   #############################################################################
 
   time.timeZone = "Europe/Berlin";
@@ -47,18 +73,9 @@
   ];
 
   powerManagement.powertop.enable = true;
+  security.sudo.enable = true;
 
-  #############################################################################
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  #############################################################################
 
-  users.users.earthling = {
-     isNormalUser = true;
-     shell = pkgs.zsh;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-
-  #############################################################################
   # Program configuration
   #############################################################################
 
@@ -71,8 +88,6 @@
   };
 
   programs.htop.enable = true;
-
-  programs.light.enable = true;
 
   programs.neovim = {
     enable = true;
@@ -91,8 +106,6 @@
     withPython3 = true;
   };
 
-  programs.pantheon-tweaks.enable = true;
-
   programs.tmux = {
     enable = true;
     clock24 = true;
@@ -104,63 +117,36 @@
     ohMyZsh = {
       enable = true;
       plugins = [ "git" "python" "helm" "kubectl"];
-      theme = "agnoster";
+      theme = "robbyrussell";
     };
   };
 
-  #############################################################################
+
   # Packages and environment
   #############################################################################
 
   nixpkgs.config.allowUnfree = true;
 
-  environment.variables = {
-    DEFAULT_USER = "earthling";
-  };
-
   environment.systemPackages = with pkgs; [
-    firefox
-    alacritty
-    curl
-    bitwarden
-    bitwarden-cli
-    pcloud
-    ecryptfs
-    ecryptfs-helper
-    gh
-    tig
-    stack
-    buildah
-    kubectl
-    kubernetes-helm
-    bat   # possible replacement fot cat
-    xh    # potential replacement for curl
-    gitui # potential replacement for tig
+    git           # distributed vcs
+    gh            # GitHub CLI
+    tig           # text-mode interface for git
+    bat           # cat clone with syntax highlighting and Git integration
+    glow          # render markdown on the CLI
+    curl          # you shouldknow
+    xh            # friendly and fast tool for sending HTTP requests
+    bitwarden-cli # secure and free password manager
+    tree
   ];
 
-  #############################################################################
+
   # Services
   #############################################################################
-
-  #services.clamav = {
-  #  daemon.enable = true;
-  #  updater = {
-  #    enable = true;
-  #    frequency = 1;
-  #    interval = "hourly";
-  #  };
-  #};
 
   services.earlyoom = {
     enable = true;
     enableNotifications = true;
   };
-
-  services.fwupd.enable = true;
-
-  services.k3s.enable = true;
-
-  services.openssh.enable = true;
 
   services.pipewire = {
     enable = true;
@@ -170,37 +156,16 @@
     pulse.enable = true;
   };
 
+  services.fwupd.enable = true;
+  services.openssh.enable = true;
   services.printing.enable = true;
 
-  services.xserver = {
-    enable = true;
-    desktopManager.pantheon.enable = true;
-    layout = "us,us";
-    xkbVariant = "altgr-intl,";
-    libinput.enable = true;
-  };
 
-  #############################################################################
-  # Virtualisation
-  #############################################################################
-
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
-
-  virtualisation.libvirtd.enable = true;
-
-  #############################################################################
   # Misc
   #############################################################################
 
   hardware.pulseaudio.enable = false;
   sound.enable = true;
 
-  systemd.services.k3s.enable = false;
-
-  security.pam.enableEcryptfs = true;
-
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "21.11";
 }

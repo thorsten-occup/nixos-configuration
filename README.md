@@ -1,5 +1,7 @@
 # NixOS
 
+> **WARNING:** This is work in progress!!
+
 > **WARNING:** This is the documentation of my personal setup and is therefore
 aimed to work on **my** machines (which it now and then does). Please be aware,
 that this might not work on your machine!
@@ -68,7 +70,7 @@ The installation is guided by the script `install.sh` to various extends.
 
 ```bash
 # download install script
-$ curl -L https://tinyurl.com/mynixos/install.sh --output install.sh
+$ curl -L https://tinyurl.com/mynixostest/install.sh --output install.sh
 # make it executable
 $ chmod u+x install.sh
 ```
