@@ -1,0 +1,27 @@
+{ pkgs, ... }: {
+
+  #############################################################################
+  # Packages needed for work
+  #############################################################################
+
+
+  # Packages
+  #############################################################################
+
+  environment.systemPackages = with pkgs; [
+    slack
+    teams
+    vscode
+    vscode-extensions.ms-python.python
+    vscode-extensions.vscodevim.vim
+    vscode-extensions.dhall.dhall-lang
+    vscode-extensions.redhat.vscode-yaml
+    vscode-extensions.hashicorp.terraform
+    vscode-extensions.github.github-vscode-theme
+  ];
+
+
+  # Services
+  #############################################################################
+
+}
