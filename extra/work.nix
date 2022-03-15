@@ -9,6 +9,7 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
+    google-chrome
     slack
     teams
     vscode
@@ -18,6 +19,8 @@
     vscode-extensions.redhat.vscode-yaml
     vscode-extensions.hashicorp.terraform
     vscode-extensions.github.github-vscode-theme
+    vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
+    vscode-extensions.arcticicestudio.nord-visual-studio-code
   ];
 
 
