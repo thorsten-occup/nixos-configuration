@@ -152,7 +152,6 @@
     enable = true;
     alsa.enable = true;
     jack.enable = true;
-    media-session.enable = true;
     pulse.enable = true;
   };
 
@@ -167,5 +166,5 @@
   hardware.pulseaudio.enable = false;
   sound.enable = true;
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "22.05";
 }

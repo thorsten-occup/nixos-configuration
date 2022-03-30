@@ -8,9 +8,10 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
-    stack # the haskel tool stack
-    dhall # a configuration language
-    cue   # data constraint language
+    #stack                   # the haskell tool stack
+    haskell.compiler.ghc921  # first learn with ghc and later with stack
+    dhall                    # a configuration language
+    cue                      # data constraint language
     azure-cli
     buildah
     kubernetes-helm
