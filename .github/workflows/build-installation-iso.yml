@@ -16,4 +16,4 @@ jobs:
     - run: |
         #nix-shell -p nixos-generators --version
         # reference: https://nix.dev/tutorials/building-bootable-iso-image
-        nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./myimage.nix -o result"
+        nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./nix/image.nix -o result"
