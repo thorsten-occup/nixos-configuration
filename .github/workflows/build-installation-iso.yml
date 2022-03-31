@@ -14,6 +14,9 @@ jobs:
       with:
         nix_path: nixpkgs=channel:nixos-unstable
     - run: |
-        #nix-shell -p nixos-generators --version
         # reference: https://nix.dev/tutorials/building-bootable-iso-image
-        nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./nix/image.nix -o result"
+        # other possible formats: https://github.com/nix-community/nixos-generators#supported-formats
+        nix --extra-experimental-features "nix-command flakes" profile install github:nix-community/nixos-generators
+        echo ::set-env name=ISO_PATH::$(nixos-generate --format iso --configuration ./nix/install-iso.nix -o result)
+    - run: |
+        echo "The ISO: ${{ env.ISO_PATH }}"
