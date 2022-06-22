@@ -9,7 +9,7 @@
 
   environment.systemPackages = with pkgs; [
     #stack                   # the haskell tool stack
-    haskell.compiler.ghc922  # first learn with ghc and later with stack
+    haskell.compiler.ghc923  # first learn with ghc and later with stack
     dhall                    # a configuration language
     cue                      # data constraint language
     azure-cli
