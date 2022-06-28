@@ -128,7 +128,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    git           # distributed vcs
+    #git           # distributed vcs
     gh            # GitHub CLI
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration

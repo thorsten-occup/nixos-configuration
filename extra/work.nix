@@ -2,6 +2,8 @@
 
   #############################################################################
   # Packages needed for work
+  #----------------------------------------------------------------------------
+  #
   #############################################################################
 
 
@@ -15,8 +17,7 @@
     vscode
     vscode-extensions.editorconfig.editorconfig
     vscode-extensions.ms-python.python
-    #vscode-extensions.vscodevim.vim
-    vscode-extensions.asvetliakov.vscode-neovim
+    vscode-extensions.vscodevim.vim
     vscode-extensions.dhall.dhall-lang
     vscode-extensions.redhat.vscode-yaml
     vscode-extensions.hashicorp.terraform
