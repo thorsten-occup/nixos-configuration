@@ -1,3 +1,7 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, pkgs, ... }:
 
 {
@@ -6,29 +10,27 @@
       ./hardware-configuration.nix
       ./extra/gui.nix
       ./extra/dev.nix
+      ./extra/work.nix
     ];
 
-  boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  # Setup keyfile
+  boot.initrd.secrets = {
+    "/crypto_keyfile.bin" = null;
   };
+
+  # Enable swap on luks
+  boot.initrd.luks.devices."luks-048f63e1-3751-45e8-870a-005ebd67a45a".device = "/dev/disk/by-uuid/048f63e1-3751-45e8-870a-005ebd67a45a";
+  boot.initrd.luks.devices."luks-048f63e1-3751-45e8-870a-005ebd67a45a".keyFile = "/crypto_keyfile.bin";
 
   networking = {
-    hostName = "taucetif";
-    interfaces = {
-      enp2s0.useDHCP = true;
-      wlp3s0.useDHCP = true;
-    };
-    firewall = {
-      enable = false;
-      # allowedTCPPorts = [ ... ];
-      # allowedUDPPorts = [ ... ];
-    };
+    hostName = "gliese180c";
+    networkmanager.enable = true;
   };
-
 
   # Accounts (don't forget to set a password with 'passwd')
   #############################################################################
@@ -56,13 +58,24 @@
     uid = 1010;
   };
 
-
   # Locals
   #############################################################################
 
   time.timeZone = "Europe/Berlin";
 
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.utf8";
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "de_DE.utf8";
+    LC_IDENTIFICATION = "de_DE.utf8";
+    LC_MEASUREMENT = "de_DE.utf8";
+    LC_MONETARY = "de_DE.utf8";
+    LC_NAME = "de_DE.utf8";
+    LC_NUMERIC = "de_DE.utf8";
+    LC_PAPER = "de_DE.utf8";
+    LC_TELEPHONE = "de_DE.utf8";
+    LC_TIME = "de_DE.utf8";
+  };
+
   console = {
     font = "Lat2-Terminus16";
     keyMap = "us";
@@ -74,7 +87,6 @@
 
   powerManagement.powertop.enable = true;
   security.sudo.enable = true;
-
 
   # Program configuration
   #############################################################################
@@ -137,6 +149,7 @@
     xh            # friendly and fast tool for sending HTTP requests
     bitwarden-cli # secure and free password manager
     tree
+    vimPlugins.rust-vim
   ];
 
 
@@ -166,5 +179,5 @@
   hardware.pulseaudio.enable = false;
   sound.enable = true;
 
-  system.stateVersion = "22.05";
+  system.stateVersion = "unstable";
 }
