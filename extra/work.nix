@@ -24,7 +24,7 @@
     vscode-extensions.github.github-vscode-theme
     vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
     vscode-extensions.arcticicestudio.nord-visual-studio-code
-    #vscode-extensions.haskell.haskell
+    vscode-extensions.golang.go
   ];
 
 
