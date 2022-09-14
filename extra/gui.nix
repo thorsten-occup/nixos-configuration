@@ -34,8 +34,9 @@
   services.xserver = {
     enable = true;
     desktopManager.pantheon.enable = true;
+    displayManager.lightdm.enable = true;
     layout = "us,us";
-    xkbVariant = "altgr-intl,";
+    xkbVariant = "intl";
     libinput.enable = true;
   };
 }

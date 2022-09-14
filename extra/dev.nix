@@ -10,14 +10,16 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
-    #stack                   # the haskell tool stack
-    haskell.compiler.ghc923  # first learn with ghc and later with stack
+    go
     dhall                    # a configuration language
     cue                      # data constraint language
     azure-cli
     buildah
     kubernetes-helm
     kubectl
+    terraform
+    terraform-providers.vault
+    vault
   ];
 
   # Services
@@ -34,6 +36,6 @@
     dockerCompat = true;
   };
 
-  #virtualisation.libvirtd.enable = true;
+  virtualisation.libvirtd.enable = true;
 
 }
