@@ -10,7 +10,8 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
-    go
+    rustup
+    #cargo
     dhall                    # a configuration language
     cue                      # data constraint language
     azure-cli
