@@ -4,8 +4,10 @@
   imports =
     [
       ./hardware-configuration.nix
+      ./extra/base.nix
       ./extra/gui.nix
       ./extra/dev.nix
+      ./extra/work.nix
     ];
 
   # Bootloader.
@@ -27,6 +29,7 @@
     networkmanager.enable = true;
   };
 
+  #############################################################################
   # Accounts (don't forget to set a password with 'passwd')
   #############################################################################
 
@@ -53,6 +56,7 @@
     uid = 1010;
   };
 
+  #############################################################################
   # Locals
   #############################################################################
 
@@ -83,69 +87,7 @@
   powerManagement.powertop.enable = true;
   security.sudo.enable = true;
 
-  # Program configuration
   #############################################################################
-
-  programs.git = {
-    enable = true;
-    lfs.enable = true;
-    config = {
-      fetch = { prune = true; };
-    };
-  };
-
-  programs.htop.enable = true;
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    configure = {
-      customRC = ''
-        set nocompatible
-        syntax on
-        set foldmethod=syntax
-        set nu
-        filetype indent plugin on
-      '';
-    };
-    withPython3 = true;
-  };
-
-  programs.tmux = {
-    enable = true;
-    clock24 = true;
-    newSession = true;
-  };
-
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "python" "helm" "kubectl"];
-      theme = "robbyrussell";
-    };
-  };
-
-
-  # Packages and environment
-  #############################################################################
-
-  nixpkgs.config.allowUnfree = true;
-
-  environment.systemPackages = with pkgs; [
-    gh            # GitHub CLI
-    tig           # text-mode interface for git
-    bat           # cat clone with syntax highlighting and Git integration
-    glow          # render markdown on the CLI
-    curl          # you shouldknow
-    xh            # friendly and fast tool for sending HTTP requests
-    bitwarden-cli # secure and free password manager
-    tree
-  ];
-
-
   # Services
   #############################################################################
 
@@ -166,11 +108,12 @@
   services.printing.enable = true;
 
 
+  #############################################################################
   # Misc
   #############################################################################
 
   hardware.pulseaudio.enable = false;
   sound.enable = true;
-
+  nixpkgs.config.allowUnfree = true;
   system.stateVersion = "unstable";
 }

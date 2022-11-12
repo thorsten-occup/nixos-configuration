@@ -32,14 +32,11 @@
     elementary-calendar
     elementary-camera
     elementary-code
-    #elementary-files
     elementary-mail
     elementary-music
     elementary-photos
-    #elementary-screenshot
-    elementary-tasks
-    #elementary-terminal
     elementary-videos
+    sideload
   ];
 
   #############################################################################

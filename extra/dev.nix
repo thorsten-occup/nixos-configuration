@@ -10,11 +10,12 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
-    rustup
-    #cargo
+    go
+    python311
     dhall                    # a configuration language
     cue                      # data constraint language
     azure-cli
+    dagger
     buildah
     kubernetes-helm
     kubectl
