@@ -11,6 +11,9 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
+    fish
+    fishPlugins.hydro
+    #oh-my-fish
     gh            # GitHub CLI
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
@@ -59,13 +62,13 @@
     newSession = true;
   };
 
-  programs.zsh = {
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "python" "helm" "kubectl"];
-      theme = "robbyrussell";
-    };
-  };
+  #programs.zsh = {
+  #  enable = true;
+  #  ohMyZsh = {
+  #    enable = true;
+  #    plugins = [ "git" "python" "helm" "kubectl"];
+  #    theme = "robbyrussell";
+  #  };
+  #};
 
 }

@@ -39,7 +39,7 @@
 
   users.users.earthling = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     description = "Earthling";
     createHome = true;
     home = "/home/earthling";
@@ -49,7 +49,7 @@
 
   users.users.powerless = {
     isNormalUser = true;
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
     description = "Capt. Powerless";
     createHome = true;
     home = "/home/powerless";
@@ -106,7 +106,7 @@
   services.fwupd.enable = true;
   services.openssh.enable = true;
   services.printing.enable = true;
-
+  services.gnome.gnome-keyring.enable = true;
 
   #############################################################################
   # Misc
