@@ -10,8 +10,11 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
-    go
-    python311
+    rustc
+    cargo
+    cargo-ui
+    cargo-vet
+    python310
     dhall                    # a configuration language
     cue                      # data constraint language
     azure-cli

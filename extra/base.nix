@@ -13,7 +13,6 @@
   environment.systemPackages = with pkgs; [
     fish
     fishPlugins.hydro
-    #oh-my-fish
     gh            # GitHub CLI
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
@@ -51,6 +50,7 @@
         set foldmethod=syntax
         set nu
         filetype indent plugin on
+	colorscheme koehler
       '';
     };
     withPython3 = true;
@@ -60,15 +60,11 @@
     enable = true;
     clock24 = true;
     newSession = true;
+    plugins = [
+      pkgs.tmuxPlugins.nord
+      #pkgs.tmuxPlugins.power-theme
+    ];
+    terminal = "screen-256color";
   };
-
-  #programs.zsh = {
-  #  enable = true;
-  #  ohMyZsh = {
-  #    enable = true;
-  #    plugins = [ "git" "python" "helm" "kubectl"];
-  #    theme = "robbyrussell";
-  #  };
-  #};
 
 }
