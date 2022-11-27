@@ -115,5 +115,6 @@
   hardware.pulseaudio.enable = false;
   sound.enable = true;
   nixpkgs.config.allowUnfree = true;
+
   system.stateVersion = "unstable";
 }
