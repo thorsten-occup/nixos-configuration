@@ -41,6 +41,4 @@
     dockerCompat = true;
   };
 
-  virtualisation.libvirtd.enable = true;
-
 }

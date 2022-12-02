@@ -50,7 +50,7 @@
         set foldmethod=syntax
         set nu
         filetype indent plugin on
-	colorscheme koehler
+	      colorscheme koehler
       '';
     };
     withPython3 = true;
