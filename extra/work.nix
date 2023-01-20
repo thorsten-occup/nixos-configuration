@@ -14,6 +14,7 @@
     google-chrome
     #slack
     #teams
+    zoom-us
     vscode
     vscode-extensions.editorconfig.editorconfig
     vscode-extensions.ms-python.python
@@ -25,7 +26,6 @@
     vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
     vscode-extensions.arcticicestudio.nord-visual-studio-code
     vscode-extensions.golang.go
-    #jetbrains.pycharm-community
   ];
 
 }
