@@ -1,8 +1,13 @@
 # NixOS
 
+> **WARNING:** This is work in progress!!
+
 > **WARNING:** This is the documentation of my personal setup and is therefore
 aimed to work on **my** machines (which it now and then does). Please be aware,
 that this might not work on your machine!
+
+> **NOTE:** I might switch to unstable - at least for private use:
+[nixos-unstable-small](https://channels.nixos.org/?prefix=nixos-unstable-small/)
 
 ## Documentation
 
@@ -59,9 +64,16 @@ OK
 > quit
 ```
 
-## Installation
+## Installation (might not work atm ... use GUI instead)
 
 The installation is guided by the script `install.sh` to various extends.
+
+```bash
+# download install script
+$ curl -L https://tinyurl.com/mynixostest/install.sh --output install.sh
+# make it executable
+$ chmod u+x install.sh
+```
 
 > Detailed instructions to follow ... one day ... hopefully not too far away.
 
@@ -74,29 +86,21 @@ The installation is guided by the script `install.sh` to various extends.
 - services.elasticsearch
 - services.github-runner
 - services.gitlab
-- services.gocd-agent
 - services.grafana
 - services.haproxy
 - services.jenkins
 - services.jira
-- services.journalbeat
 - services.kibana
 - services.kubernetes
 - services.logstash
 - services.loki
 - services.minecraft-server
-- services.nextcloud
-- services.nginx
 - services.nomad
 - services.openldap
 - services.postgresql
 - services.prometheus
-- services.rabbitmq
-- services.redis
 - services.redshift
 - services.thermald
 - services.thinkfan
 - services.tlp
 - services.vault
-- services.vaultwarden
-- services.xserver.desktopManager.wallpaper.mode
