@@ -30,8 +30,6 @@
   environment.pantheon.excludePackages = with pkgs.pantheon; [
     elementary-calculator
     elementary-calendar
-    elementary-camera
-    elementary-code
     elementary-mail
     elementary-music
     elementary-photos
