@@ -25,6 +25,7 @@
     pcloud
     foliate   # eBook viewer
     helvum    # GTK patchbay for pipewire
+    whatsapp-for-linux
   ];
 
   environment.pantheon.excludePackages = with pkgs.pantheon; [
@@ -32,7 +33,7 @@
     elementary-calendar
     elementary-camera
     elementary-code
-    elementary-mail
+    #elementary-mail
     elementary-music
     elementary-photos
     elementary-videos

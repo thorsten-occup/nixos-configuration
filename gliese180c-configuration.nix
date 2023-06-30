@@ -33,6 +33,8 @@
   # Accounts (don't forget to set a password with 'passwd')
   #############################################################################
 
+  programs.fish.enable = true;
+
   environment.variables = {
     DEFAULT_USER = "earthling";
   };
