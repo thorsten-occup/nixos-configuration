@@ -21,7 +21,7 @@
     alacritty 
     bitwarden # secure and free password manager
     firefox
-    foliate
+    mailspring
     pcloud
     foliate   # eBook viewer
     helvum    # GTK patchbay for pipewire
@@ -33,7 +33,7 @@
     elementary-calendar
     elementary-camera
     elementary-code
-    #elementary-mail
+    elementary-mail
     elementary-music
     elementary-photos
     elementary-videos
