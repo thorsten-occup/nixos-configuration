@@ -1,3 +1,7 @@
+# Edit this configuration file to define what should be installed on
+# your system.  Help is available in the configuration.nix(5) man page
+# and in the NixOS manual (accessible by running ‘nixos-help’).
+
 { config, pkgs, ... }:
 
 {
@@ -21,8 +25,8 @@
   };
 
   # Enable swap on luks
-  boot.initrd.luks.devices."luks-fc31de55-e874-4d20-8691-367b329dfb0d".device = "/dev/disk/by-uuid/fc31de55-e874-4d20-8691-367b329dfb0d";
-  boot.initrd.luks.devices."luks-fc31de55-e874-4d20-8691-367b329dfb0d".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-907700fd-30b8-45ae-915a-921ae497adba".device = "/dev/disk/by-uuid/907700fd-30b8-45ae-915a-921ae497adba";
+  boot.initrd.luks.devices."luks-907700fd-30b8-45ae-915a-921ae497adba".keyFile = "/crypto_keyfile.bin";
 
   networking = {
     hostName = "taucetif";
@@ -36,6 +40,8 @@
   environment.variables = {
     DEFAULT_USER = "earthling";
   };
+
+  programs.fish.enable = true;
 
   users.users.earthling = {
     isNormalUser = true;
@@ -80,7 +86,7 @@
     keyMap = "us";
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     powerline-fonts
   ];
 
@@ -96,9 +102,12 @@
     enableNotifications = true;
   };
 
+  hardware.pulseaudio.enable = false;
+  sound.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
+    alsa.support32Bit = true;
     jack.enable = true;
     pulse.enable = true;
   };
@@ -112,8 +121,7 @@
   # Misc
   #############################################################################
 
-  hardware.pulseaudio.enable = false;
-  sound.enable = true;
+  security.rtkit.enable = true;
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "unstable";
