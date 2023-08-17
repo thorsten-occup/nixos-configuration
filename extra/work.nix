@@ -19,7 +19,7 @@
     vscode-extensions.editorconfig.editorconfig
     vscode-extensions.ms-python.python
     vscode-extensions.vscodevim.vim
-    vscode-extensions.dhall.dhall-lang
+    #vscode-extensions.dhall.dhall-lang
     vscode-extensions.redhat.vscode-yaml
     vscode-extensions.hashicorp.terraform
     vscode-extensions.github.github-vscode-theme
