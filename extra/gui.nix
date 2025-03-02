@@ -20,8 +20,7 @@
   environment.systemPackages = with pkgs; [
     alacritty 
     bitwarden # secure and free password manager
-    firefox
-    foliate
+    librefox
     pcloud
     foliate   # eBook viewer
     helvum    # GTK patchbay for pipewire
@@ -29,8 +28,9 @@
 
   environment.pantheon.excludePackages = with pkgs.pantheon; [
     elementary-calculator
-    elementary-calendar
-    elementary-mail
+    #elementary-calendar
+    elementary-code
+    #elementary-mail
     elementary-music
     elementary-photos
     elementary-videos
