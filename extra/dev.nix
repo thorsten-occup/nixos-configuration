@@ -10,17 +10,14 @@
   #############################################################################
 
   environment.systemPackages = with pkgs; [
-    go
-    dhall                    # a configuration language
-    cue                      # data constraint language
     azure-cli
-    dagger
     buildah
     kubernetes-helm
     kubectl
-    terraform
-    terraform-providers.vault
+    opentofu
     vault
+    uv
+    zed-editor
   ];
 
   # Services
