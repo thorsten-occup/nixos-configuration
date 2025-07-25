@@ -9,14 +9,19 @@
     curl          # you shouldknow
     bitwarden-cli # secure and free password manager
     tree
-    # vimPlugins.rust-vim
-    # vimPlugins.go-nvim
+    firefox
     vivaldi
     bitwarden # secure and free password manager
     mailspring
     pcloud
     helvum    # GTK patchbay for pipewire
     whatsapp-for-linux
+    pkg-config
+    openssl
+    python3Full
+    rustup
+    clang
+    clippy
     uv
     warp-terminal
     opencode
@@ -31,8 +36,10 @@
   ];
 
   #############################################################################
-  # Program configuration
+  # Additional configuration
   #############################################################################
+
+  services.fwupd.enable = true;
 
   programs.git = {
     enable = true;
@@ -68,7 +75,6 @@
     newSession = true;
     plugins = [
       pkgs.tmuxPlugins.nord
-      #pkgs.tmuxPlugins.power-theme
     ];
     terminal = "screen-256color";
   };
