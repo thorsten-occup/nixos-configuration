@@ -2,37 +2,31 @@
 
   environment.systemPackages = with pkgs; [
     fish
-    fishPlugins.hydro
     gh            # GitHub CLI
+    lazygit
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
     curl          # you shouldknow
     bitwarden-cli # secure and free password manager
     tree
+    calibre
+    readest
     firefox
+    thunderbird
     vivaldi
     bitwarden # secure and free password manager
-    mailspring
     pcloud
     helvum    # GTK patchbay for pipewire
     whatsapp-for-linux
-    pkg-config
     openssl
-    python3Full
     rustup
     clang
     clippy
     uv
     warp-terminal
-    opencode
+    kiro
     zed-editor
     vscode
-    vscode-extensions.editorconfig.editorconfig
-    vscode-extensions.ms-python.python
-    vscode-extensions.vscodevim.vim
-    vscode-extensions.redhat.vscode-yaml
-    vscode-extensions.hashicorp.terraform
-    vscode-extensions.github.github-vscode-theme
   ];
 
   #############################################################################
