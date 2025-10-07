@@ -1,5 +1,11 @@
 { pkgs, ... }: {
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.hack
+  ];
+
   environment.systemPackages = with pkgs; [
     fish
     gh            # GitHub CLI
@@ -12,7 +18,6 @@
     calibre
     readest
     firefox
-    thunderbird
     vivaldi
     bitwarden # secure and free password manager
     pcloud
