@@ -30,6 +30,7 @@
     uv
     warp-terminal
     kiro
+    opencode
     zed-editor
     vscode
   ];
