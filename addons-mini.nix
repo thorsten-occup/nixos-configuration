@@ -1,33 +1,45 @@
 { pkgs, ... }: {
 
-  #############################################################################
-  # Base configuration
-  #----------------------------------------------------------------------------
-  #
-  #############################################################################
-
-  #############################################################################
-  # Packages and environment
-  #############################################################################
+  fonts.packages = with pkgs; [
+    nerd-fonts.fira-code
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.hack
+  ];
 
   environment.systemPackages = with pkgs; [
     fish
-    fishPlugins.hydro
     gh            # GitHub CLI
+#    lazygit
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
-    glow          # render markdown on the CLI
     curl          # you shouldknow
-    xh            # friendly and fast tool for sending HTTP requests
-    bitwarden-cli # secure and free password manager
+#    bitwarden-cli # secure and free password manager
     tree
-    #vimPlugins.rust-vim
-    vimPlugins.go-nvim
+#    calibre
+    readest
+    firefox
+    vivaldi
+    bitwarden # secure and free password manager
+#    pcloud
+    helvum    # GTK patchbay for pipewire
+    whatsapp-for-linux
+    openssl
+#    rustup
+#    clang
+#    clippy
+    uv
+#    warp-terminal
+#    kiro
+    opencode
+    zed-editor
+ #   vscode
   ];
 
   #############################################################################
-  # Program configuration
+  # Additional configuration
   #############################################################################
+
+  services.fwupd.enable = true;
 
   programs.git = {
     enable = true;
@@ -63,9 +75,13 @@
     newSession = true;
     plugins = [
       pkgs.tmuxPlugins.nord
-      #pkgs.tmuxPlugins.power-theme
     ];
     terminal = "screen-256color";
   };
+
+#  virtualisation.podman = {
+#    enable = true;
+#    dockerCompat = true;
+#  };
 
 }
