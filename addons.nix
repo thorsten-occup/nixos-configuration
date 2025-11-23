@@ -13,23 +13,22 @@
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
     curl          # you shouldknow
-    bitwarden-cli # secure and free password manager
     tree
-    calibre
     readest
+    cosmic-reader
+
+    qutebrowser
     firefox
     vivaldi
-    bitwarden # secure and free password manager
-    pcloud
+    bitwarden-desktop
     helvum    # GTK patchbay for pipewire
-    whatsapp-for-linux
+    wasistlos
     openssl
     rustup
     clang
     clippy
     uv
     warp-terminal
-    kiro
     opencode
     zed-editor
     vscode
@@ -63,7 +62,6 @@
         set foldmethod=syntax
         set nu
         filetype indent plugin on
-	      colorscheme koehler
       '';
     };
     withPython3 = true;
@@ -74,7 +72,7 @@
     clock24 = true;
     newSession = true;
     plugins = [
-      pkgs.tmuxPlugins.nord
+      pkgs.tmuxPlugins.power-theme
     ];
     terminal = "screen-256color";
   };
