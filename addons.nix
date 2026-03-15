@@ -16,22 +16,20 @@
     tree
     readest
     cosmic-reader
-
-    qutebrowser
     firefox
     vivaldi
     bitwarden-desktop
-    helvum    # GTK patchbay for pipewire
+    crosspipe
     wasistlos
     openssl
     rustup
-    clang
-    clippy
     uv
-    warp-terminal
-    opencode
     zed-editor
     vscode
+    gemini-cli
+    copilot-cli
+    proton-pass
+    proton-authenticator
   ];
 
   #############################################################################
