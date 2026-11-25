@@ -15,15 +15,9 @@
     "widget.gtk.libadwaita-colors.enabled" = false;
   };
 
-  #services = {
-  #  desktopManager.plasma6.enable = true;
-  #  displayManager.sddm.enable = true;
-  #  displayManager.sddm.wayland.enable = true;
-  #};
-  
   environment.systemPackages = with pkgs; [
-    #cosmic-reader
     fish
+    starship
     gh            # GitHub CLI
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
@@ -31,9 +25,7 @@
     tree
     readest
     vivaldi
-    bitwarden-desktop
     crosspipe
-    #fragments
     karere
     openssl
     go
@@ -43,17 +35,6 @@
     opencode
     github-copilot-cli
 
-    ## KDE Utilities
-    #kdePackages.discover # Optional: Software center for Flatpaks/firmware updates
-    #kdePackages.kcalc # Calculator
-    #kdePackages.kcharselect # Character map
-    #kdePackages.kclock # Clock app
-    #kdePackages.kcolorchooser # Color picker
-    #kdePackages.kolourpaint # Simple paint program
-    #kdePackages.ksystemlog # System log viewer
-    #kdePackages.sddm-kcm # SDDM configuration module
-    #kdiff3 # File/directory comparison tool
-    
     # Hardware/System Utilities (Optional)
     hardinfo2 # System benchmarks and hardware info
     wayland-utils # Wayland diagnostic tools
@@ -61,16 +42,23 @@
     vlc # Media player
   ];
 
-  #environment.plasma6.excludePackages = with pkgs; [
-  #  kdePackages.elisa # Music player
-  #  kdePackages.kdepim-runtime # Akonadi agents
-  #  kdePackages.kmahjongg
-  #  kdePackages.kmines
-  #  kdePackages.konversation # IRC client
-  #  kdePackages.kpat # Solitaire
-  #  kdePackages.ksudoku
-  #  #kdePackages.ktorrent
-  #];
+  #############################################################################
+  # Starship
+  #############################################################################
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      add_newline = false;
+      command_timeout = 1300;
+      scan_timeout = 50;
+      format = "$directory$golang$git_branch$git_commit$git_state$git_status";
+      character = {
+        success_symbol = "[](bold green) ";
+        error_symbol = "[✗](bold red) ";
+      };
+    };
+  };
 
   #############################################################################
   # Additional configuration
@@ -122,5 +110,4 @@
     enable = true;
     dockerCompat = true;
   };
-
 }

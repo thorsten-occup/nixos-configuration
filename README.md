@@ -26,13 +26,6 @@ Supporting resources:
 - [NixOS Configuration Collection](https://nixos.wiki/wiki/Configuration_Collection)
 - [nixos-up](https://github.com/samuela/nixos-up)
 
-## Pre-install
-
-### Create installation media
-
-Download minimal ISO [here](https://channels.nixos.org/nixos-21.11/latest-nixos-minimal-x86_64-linux.iso)
-and write to thumb drive (recommendation: [Ventoy](https://github.com/ventoy/Ventoy)).
-
 ### Set up wifi (w/o Network Manager)
 
 Wifi interface name:
@@ -63,19 +56,6 @@ OK
 ... some more output ...
 > quit
 ```
-
-## Installation (might not work atm ... use GUI instead)
-
-The installation is guided by the script `install.sh` to various extends.
-
-```bash
-# download install script
-$ curl -L https://tinyurl.com/mynixostest/install.sh --output install.sh
-# make it executable
-$ chmod u+x install.sh
-```
-
-> Detailed instructions to follow ... one day ... hopefully not too far away.
 
 ## ToDo
 
