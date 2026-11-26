@@ -39,6 +39,7 @@
     hardinfo2 # System benchmarks and hardware info
     wayland-utils # Wayland diagnostic tools
     wl-clipboard # Wayland copy/paste support
+    usbutils
     vlc # Media player
   ];
 
