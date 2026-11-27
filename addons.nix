@@ -18,7 +18,6 @@
   environment.systemPackages = with pkgs; [
     fish
     starship
-    gh            # GitHub CLI
     tig           # text-mode interface for git
     bat           # cat clone with syntax highlighting and Git integration
     curl          # you shouldknow
@@ -33,6 +32,11 @@
     zed-editor
     vscode
     opencode
+    bruno
+    # GitHub
+    github-cli
+    github-desktop
+    github-copilot-app
     github-copilot-cli
 
     # Hardware/System Utilities (Optional)
